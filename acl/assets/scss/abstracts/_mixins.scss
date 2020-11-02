@@ -1,0 +1,144 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Style text
+/// @author Ngo Phu Nguyen
+/// @param {String} $font-size - e.g. 1px|1rem|1em|1vw...
+/// @param {String} $font-weight - e.g. regular|medium|bold
+/// @param {String} $color - e.g. #000...
+@mixin styleText($font-size, $font-weight, $color) {
+    $output: $font-weight;
+    @if map-has-key($weights, $font-weight) {
+        $output: map-get($weights, $font-weight);
+    }
+    font-size: $font-size !important;
+    font-weight: $output !important;
+    color: $color;
+}
+
+/// Style button & hover button
+/// @author Ngo Phu Nguyen
+/// @param {String} $background-color - e.g. #000...
+/// @param {String} $style-border - e.g. 1px solid #000|1px dotted #000...
+/// @param {String} $padding-top-bottom - e.g. 1em|1px|1rem...
+/// @param {String} $padding-right-left - e.g. 1em|1px|1rem...
+/// @param {String} $border-radius - e.g. 1px|1em|1rem...
+/// @param {String} $color - e.g. #000000|#FFFFFF|...
+@mixin styleButton($background-color, $style-border, $padding-top-bottom, $padding-right-left, $border-radius) {
+    background-color: $background-color;
+    border: $style-border;
+    padding: $padding-top-bottom $padding-right-left;
+    border-radius: $border-radius!important;
+}
+@mixin hoverButton($background-color,$color,$style-border){
+    background-color: $background-color!important;
+    color: $color!important;
+    border: $style-border!important;
+}
+
+/// Set ellipsis text
+/// @author Ngo Phu Nguyen
+/// @param {String} $font-size - e.g. 1px|1rem|1vw...
+/// @param {String} $line-height - e.g. 1px|1.5|1rem|1em...
+/// @param {String} $lines-to-show - e.g. 1|2|3|4...
+@mixin setTextEllipsis($font-size, $line-height, $lines-to-show) {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+    font-size: $font-size!important;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/// Set width and height button
+/// @author Ngo Phu Nguyen
+/// @param {String} $width - e.g. auto|30px...
+/// @param {String} $height - e.g. auto|30px...
+@mixin setWidthHeight($width, $height) {
+    width: $width!important;
+    height: $height!important;
+    text-decoration: none!important;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    @if $width == $height {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+}
+
+/// Set Image
+/// @author Ngo Phu Nguyen
+/// @param {String} $width - e.g. auto|30px...
+/// @param {String} $height - e.g. auto|30px...
+/// @param {String} $border-radius - e.g. 1px|1em|1rem...
+@mixin setImage($width, $height, $border-radius) {
+    width: $width!important;
+    height: $height!important;
+    border-radius: $border-radius!important;
+}
+
+@mixin setIcon($background-position, $width, $height, $background-size) {
+    width: $width;
+    height: $height;
+    display: inline-block;
+    background-position: $background-position;
+    background-size: $background-size;
+}
+
+/// Style input
+/// @author Ngo Phu Nguyen
+/// @param {String} $background-color - e.g. #000...
+/// @param {String} $style-border - e.g. 1px solid #000|1px dotted #000...
+/// @param {String} $color - e.g. #000...
+/// @param {String} $border-radius - e.g. 1px|1em|1rem...
+@mixin styleInput($background-color, $style-border, $padding-top-bottom, $padding-right-left, $border-radius) {
+    background-color: $background-color!important;
+    border: $style-border!important;
+    padding: $padding-top-bottom $padding-right-left!important;
+    border-radius: $border-radius!important;
+}
+
+/// Responsive
+/// @author Ngo Phu Nguyen
+/// @param {String} $media - e.g. small|medium|large|extra-large
+/// @param {String} $breakpoints - breakpoints in a _variables.scss
+@mixin respond-to($media) {
+    @if map-has-key($map: $breakpoints, $key: $media ) {
+        $value: map-get($map: $breakpoints, $key: $media);
+        @media screen and (max-width: $value){
+            @content;
+        }
+    }
+    @else{
+        @warn "`#{$media}` này không tồn tại";
+    }
+}
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link http://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+}

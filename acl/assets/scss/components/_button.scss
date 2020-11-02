@@ -1,0 +1,20 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn-circle-0 {
+    @include styleButton($color-pink-0, 1px solid $color-pink-0, 4px, 18px, 30px);
+    @include styleText($fs-2, regular, $color-white-0);
+    &:hover {
+        background-color: $color-white-0;
+        @include styleText($fs-2, regular, $color-black-0);
+    }
+}
+.btn-circle-1 {
+    @include styleButton($color-white-0, 1px solid $color-grey-1, 4px, 18px, 30px);
+    @include styleText($fs-2, regular, $color-grey-1);
+    &:hover {
+        border: 1px solid $color-pink-0;
+        background-color: $color-pink-0;
+        @include styleText($fs-2, regular, $color-white-0);
+    }
+}

@@ -1,0 +1,90 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Regular font family
+/// @type List
+$text-font-stack: "Montserrat", sans-serif !default;
+
+/// Copy text color
+/// @type Color
+$color-black-0: #333942 !default;
+$color-black-1: #3C4A5E;
+$color-black-2: #4A4A4A;
+$color-black-3: #555555;
+
+$color-white-0: #FFFFFF;
+$color-white-1: #E9ECF0;
+$color-white-2: #F1F1F1;
+
+$color-grey-0: #F8F8F8;
+$color-grey-1: #CBCBCB;
+$color-grey-2: #F9FAFC;
+$color-grey-3: #FCFDFF;
+$color-grey-4: #979797;
+$color-grey-5: #DDDDDD;
+$color-grey-6: #DEDEDE;
+$color-grey-7: #D2DAE4;
+$color-grey-8: #AAAAAA;
+$color-grey-9: #ced4da;
+
+$color-pink-0: #BB0029;
+$color-pink-1: #C40652;
+
+$color-red-0:#F50000;
+
+$color-green-0: #7ED321;
+$color-green-1: #006621;
+
+$color-blue-0: #C1CBD9;
+$color-blue-1: #F0F3F7;
+$color-blue-2: #8998AC;
+$color-blue-3: #8392A7;
+$color-blue-4: #3B4859;
+$color-blue-5: #E4ECF6;
+$color-blue-6: #39475B;
+$color-blue-7: #EFF2F7;
+$color-blue-8: #007AFF;
+$color-blue-9: #1A0DAB;
+$color-blue-10: #3B7CFF;
+$color-blue-11:#606A7B;
+$color-blue-12:#E5E9EE;
+$color-blue-13:#DEE5EE;
+$color-blue-14:#E20000;
+$color-blue-15:#D8D8D8;
+$color-blue-16:#15B02A;
+$color-blue-17:#788396;
+$color-blue-18:#f5f8fc;
+
+$color-yellow-0: #FFDF00;
+
+/// Copy text size
+/// @type Size
+$fs-0: 14px !default;
+$fs-1: 13px;
+$fs-2: 12px;
+$fs-3: 11px;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+    "small": 320px,
+    "medium": 768px,
+    "large": 1024px,
+    "extra-large": 1200px,
+) !default;
+
+/// Font weight map
+/// @prop {Map} values - Values are actual font weight
+$weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+) !default;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: "../" !default;

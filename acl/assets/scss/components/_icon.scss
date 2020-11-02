@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the icon component.
+// -----------------------------------------------------------------------------
+.icon-all{
+    background: url(../../assets/images/icon/icons.svg) no-repeat;
+}
+/// Triangle down
+.icon-triangle-down {
+    position: relative;
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid $color-blue-3;
+    &::after {
+        position: absolute;
+        content: "";
+        transform: translate(-50%, -145%);
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 4px solid $color-white-0;
+    }
+}

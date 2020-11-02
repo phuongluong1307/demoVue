@@ -1,0 +1,93 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the radio component.
+// -----------------------------------------------------------------------------
+
+.box-radio {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    .custom-radio {
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 0;
+        cursor: pointer;
+        @include styleText($fs-3, regular, $color-blue-2);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            &:checked ~ .checkmark {
+                background-color: $color-white-0;
+            }
+            &:checked ~ .checkmark:after {
+                display: block;
+            }
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 16px;
+            width: 16px;
+            border: 1px solid $color-grey-1;
+            border-radius: 50%;
+            &:after {
+                content: "";
+                position: absolute;
+                display: none;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: $color-pink-0;
+            }
+        }
+        &:first-child {
+            margin-right: 103px;
+        }
+    }
+}
+.rating {
+    float: left;
+    > input{
+        &:checked ~ label {
+            color: #ffc700;
+        }
+        &:checked + label:hover,
+        &:checked + label:hover ~ label,
+        &:checked ~ label:hover,
+        &:checked ~ label:hover ~ label,
+        &:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+    }
+    &:not(:checked){
+        > input {
+            display: none;
+        }
+        > label {
+            float:right;
+            width:1em;
+            overflow:hidden;
+            white-space:nowrap;
+            cursor:pointer;
+            font-size:25px;
+            color:#ccc;
+            &::before {
+                content: '★ ';
+            }
+            &:hover, &:hover ~ label {
+                color: #deb217;
+            }
+        }
+    }
+}

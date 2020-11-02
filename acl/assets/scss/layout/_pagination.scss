@@ -1,0 +1,72 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the pagination of the site/application.
+// -----------------------------------------------------------------------------
+.pagination {
+    .page-item {
+        .page-link {
+            @include styleText($fs-2, regular, $color-blue-4);
+            @include styleButton(transparent, none, 0, 0, 100%);
+            width: 30px;
+            height: 30px;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            margin-right: 10px;
+            &.page-arrow {
+                background: $color-blue-7;
+                &:hover {
+                    background: $color-pink-0;
+                    color: $color-white-0;
+                }
+            }
+            @include on-event {
+                color: $color-white-0;
+                background: $color-pink-0;
+            }
+            &.active {
+                background: $color-pink-0;
+                color: $color-white-0;
+            }
+        }
+    }
+}
+.custom-select-option {
+    border-radius: 15px;
+    background: $color-pink-0;
+    color: $color-white-0;
+    max-height: 30px;
+    position: relative;
+    .custom-select {
+        @include styleText($fs-0, regular, $color-white-0);
+        background: transparent;
+        width: auto;
+        max-height: 30px;
+        border: none;
+        box-shadow: none;
+        option {
+            @include styleText($fs-2, regular, $color-blue-2);
+            padding: 12px;
+            text-align: center;
+        }
+    }
+    .icon-triangle-down {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        border-top: 7px solid $color-white-0;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        display: inline-block;
+        pointer-events: none;
+        &::after{
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the content of the site/application.
+// -----------------------------------------------------------------------------
+.content-wrapper {
+    background: $color-grey-2;
+    .content {
+        padding: 20px;
+        .card {
+            border-radius: 10px;
+            .card-header {
+                min-height: 70px;
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                &::after{
+                    display: none;
+                }
+            }
+            .card-body {
+                padding: 20px;
+                .card-title{
+                    width: 100%;
+                    margin-bottom: 7px;
+                    @include styleText($fs-2,regular,$color-blue-4);
+                }
+            }
+            .card-footer {
+                background: transparent;
+                padding: 20px;
+                padding-top: 0;
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                span {
+                    @include styleText($fs-1, regular, $color-blue-3);
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

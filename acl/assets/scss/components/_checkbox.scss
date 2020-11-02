@@ -1,0 +1,97 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the checkbox component.
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the checkbox component.
+// -----------------------------------------------------------------------------
+
+/// Checkbox 1
+/* Checkbox with
+    font-size: 12px;
+    font-weight: 400;
+    color: #8998AC;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px */
+.custom-checkbox-0 {
+    margin: 0!important;
+    input{
+        &:checked{
+            +label{
+                color: $color-pink-0;
+                &::before{
+                    background-color: $color-pink-0!important;
+                    border-color: $color-pink-0!important;
+                }
+            }
+        }
+        &:hover{
+            +label{
+                color: $color-pink-0;
+                &::before{
+                    border-color: $color-pink-0!important;
+                }
+            }
+        }
+    }
+    label{
+        @include styleText($fs-2, regular, $color-blue-2);
+        min-height: 16px;
+        line-height: 16px;
+        position: relative;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        &::before{
+            width: 16px!important;
+            height: 16px!important;
+            border-radius: 4px!important;
+        }
+        &::after{
+            top: 50%!important;
+            -webkit-transform: translate(65%,-60%) rotate(45deg)!important;
+            transform: translate(65%,-60%) rotate(45deg)!important;
+        }
+    }
+}
+/// Checkbox 2
+/* Checkbox with
+    font-size: 12px;
+    font-weight: 400;
+    color: #8998AC;
+    width: 20px;
+    height: 20px; */
+.custom-checkbox-1 {
+    label {
+        @include styleText($fs-2, regular, $color-blue-2);
+        &:before {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+/// Checkbox 3 with ios style
+.ios-ui-select{
+    height: 26px;
+    width: 54px;
+    border: 1px solid $color-white-1;
+    background: $color-white-0;
+    .inner{
+        width: 20px;
+        height: 20px;
+        background: $color-white-1;
+        top: 1px;
+    }
+    &.checked{
+        box-shadow: none;
+        .inner{
+            left: 30px;
+            top: 2px;
+            background: $color-green-0;
+        }
+    }
+}
